@@ -10,17 +10,17 @@ class Logo extends StatelessWidget {
     return Center(
       child: Container(
         width: 175,
-        margin: EdgeInsets.only(top: 25),
+        margin: EdgeInsets.only(top: 20),
         child: Column(
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadiusGeometry.circular(20),
               child: Image(image: AssetImage('assets/tag-logo-a.png')),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 12),
             Text(
               titulo,
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
           ],
         ),

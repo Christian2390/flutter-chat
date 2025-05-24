@@ -22,11 +22,11 @@ class Labels extends StatelessWidget {
             style: TextStyle(
               color: Colors.brown,
               fontStyle: FontStyle.normal,
-              fontSize: 15,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 6),
+          SizedBox(height: 4),
           GestureDetector(
             onTap: () {
               Navigator.pushReplacementNamed(context, ruta);
