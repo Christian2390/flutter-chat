@@ -1,5 +1,6 @@
 import 'package:chat/helpers/mostrar_alerta.dart';
 import 'package:chat/services/auth_service.dart';
+import 'package:chat/services/socket_service.dart';
 import 'package:chat/widgets/botonIngrese.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +54,7 @@ class _FormState extends State<_Form> {
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<AuthService>(context);
+    final socketService = Provider.of<SocketService>(context);
     return Container(
       margin: EdgeInsets.only(top: 35),
       padding: EdgeInsets.symmetric(horizontal: 50),
@@ -83,16 +85,16 @@ class _FormState extends State<_Form> {
                 authService.autenticando
                     ? () {}
                     : () async {
-                      print(nameCtrl.text);
+                      /* print(nameCtrl.text);
                       print(emailCtrl.text);
-                      print(passCtrl.text);
+                      print(passCtrl.text);*/
                       final registroOk = await authService.register(
                         nameCtrl.text.trim(),
                         emailCtrl.text.trim(),
                         passCtrl.text.trim(),
                       );
                       if (registroOk == true) {
-                        //TODO: Conectar socket server
+                        socketService.connect();
                         Navigator.pushReplacementNamed(context, 'usuarios');
                       } else {
                         mostrarAlerta(
